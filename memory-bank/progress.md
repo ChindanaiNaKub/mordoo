@@ -80,6 +80,23 @@ mordoo/
 
 ---
 
+### 2025-01-12 — Updated: 5-Round Limit
+
+**Changes:**
+- Added round counter (shows "รอบที่ X/5")
+- Game now ends after 5 rounds (previously infinite)
+- Added end screen with final stats
+- "เล่นใหม่" (Play Again) button to reset
+- Improved pacing: shorter experience as requested
+
+**Rationale:**
+- User feedback: 5 rounds feels better than infinite play
+- Creates a complete narrative arc
+- Players get a satisfying conclusion
+- Final reflection: "คุณเชื่อสิ่งที่อยากเชื่อ ใช่ไหม?" (Do you believe what you want to believe?)
+
+---
+
 ### 2025-01-12 — Game Complete & Deployed! 🎉
 
 **Completed:**
