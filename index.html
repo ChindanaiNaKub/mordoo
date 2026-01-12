@@ -29,6 +29,9 @@
             <span class="trust-value" id="trustValue">50%</span>
         </div>
 
+        <!-- Round Counter -->
+        <div class="round-counter" id="roundCounter">รอบที่ 1/5</div>
+
         <!-- Loading State -->
         <div class="loading hidden" id="loading">
             <div class="loading-text">กำลังอ่านดวงของคุณ...</div>
@@ -54,6 +57,24 @@
 
         <!-- Request Button -->
         <button class="btn btn-fortune" id="btnRequest">ดูดวง</button>
+
+        <!-- End Screen -->
+        <div class="end-container hidden" id="endContainer">
+            <h2 class="end-title">จบแล้ว!</h2>
+            <p class="end-message">ขอบคุณที่มาดูดวง</p>
+            <div class="end-stats">
+                <div class="stat-item">
+                    <span class="stat-label">ความน่าเชื่อถือสุดท้าย</span>
+                    <span class="stat-value final-score" id="finalScore">50%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">จำนวนรอบ</span>
+                    <span class="stat-value rounds-played" id="roundsPlayed">5</span>
+                </div>
+            </div>
+            <p class="end-reflection">คุณเชื่อสิ่งที่อยากเชื่อ ใช่ไหม?</p>
+            <button class="btn btn-secondary" onclick="location.reload()">เล่นใหม่</button>
+        </div>
     </main>
 
     <script type="module" src="/app.js"></script>

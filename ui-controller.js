@@ -5,6 +5,7 @@
 const elements = {
   trustFill: null,
   trustValue: null,
+  roundCounter: null,
   loading: null,
   fortuneContainer: null,
   fortuneText: null,
@@ -15,7 +16,8 @@ const elements = {
   revealMode: null,
   revealMessage: null,
   scoreChange: null,
-  btnRequest: null
+  btnRequest: null,
+  endContainer: null
 };
 
 /**
@@ -24,6 +26,7 @@ const elements = {
 export function initUI() {
   elements.trustFill = document.getElementById('trustFill');
   elements.trustValue = document.getElementById('trustValue');
+  elements.roundCounter = document.getElementById('roundCounter');
   elements.loading = document.getElementById('loading');
   elements.fortuneContainer = document.getElementById('fortuneContainer');
   elements.fortuneText = document.getElementById('fortuneText');
@@ -35,6 +38,7 @@ export function initUI() {
   elements.revealMessage = document.getElementById('revealMessage');
   elements.scoreChange = document.getElementById('scoreChange');
   elements.btnRequest = document.getElementById('btnRequest');
+  elements.endContainer = document.getElementById('endContainer');
 }
 
 /**
@@ -46,6 +50,16 @@ export function updateTrustDisplay(score) {
   const percentage = Math.round(score);
   elements.trustFill.style.width = percentage + '%';
   elements.trustValue.textContent = percentage + '%';
+}
+
+/**
+ * Update round counter display
+ *
+ * @param {number} current - Current round
+ * @param {number} max - Maximum rounds
+ */
+export function updateRoundCounter(current, max) {
+  elements.roundCounter.textContent = `รอบที่ ${current}/${max}`;
 }
 
 /**
@@ -106,6 +120,24 @@ export function showRequestButton() {
 }
 
 /**
+ * Show end screen after all rounds complete
+ *
+ * @param {number} finalScore - Final trust score
+ * @param {number} roundsPlayed - Total rounds played
+ */
+export function showEndScreen(finalScore, roundsPlayed) {
+  hideAll();
+  elements.endContainer.classList.remove('hidden');
+
+  // Update end screen content
+  const finalScoreEl = elements.endContainer.querySelector('.final-score');
+  const roundsPlayedEl = elements.endContainer.querySelector('.rounds-played');
+
+  if (finalScoreEl) finalScoreEl.textContent = finalScore + '%';
+  if (roundsPlayedEl) roundsPlayedEl.textContent = roundsPlayed;
+}
+
+/**
  * Hide all dynamic content elements
  */
 function hideAll() {
@@ -114,6 +146,7 @@ function hideAll() {
   elements.responseButtons.classList.add('hidden');
   elements.revealContainer.classList.add('hidden');
   elements.btnRequest.classList.add('hidden');
+  elements.endContainer.classList.add('hidden');
 }
 
 /**
