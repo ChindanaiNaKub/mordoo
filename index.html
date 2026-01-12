@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดูดวง — Trust the Fortune?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="stars-background"></div>
+    <div class="moon"></div>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">ดูดวง</h1>
+            <p class="subtitle">แล้วคุณจะเชื่อมั้ย?</p>
+        </header>
+
+        <!-- Trust Score Display -->
+        <div class="trust-container">
+            <span class="trust-label">ความน่าเชื่อถือ</span>
+            <div class="trust-bar">
+                <div class="trust-fill" id="trustFill"></div>
+            </div>
+            <span class="trust-value" id="trustValue">50%</span>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading hidden" id="loading">
+            <div class="loading-text">กำลังอ่านดวงของคุณ...</div>
+        </div>
+
+        <!-- Fortune Display -->
+        <div class="fortune-container hidden" id="fortuneContainer">
+            <p class="fortune-text" id="fortuneText"></p>
+        </div>
+
+        <!-- Response Buttons -->
+        <div class="response-buttons hidden" id="responseButtons">
+            <button class="btn btn-primary" id="btnYes">ใช่เราเลย</button>
+            <button class="btn btn-secondary" id="btnNo">ไม่ใช่เรา</button>
+        </div>
+
+        <!-- Reveal Display -->
+        <div class="reveal-container hidden" id="revealContainer">
+            <div class="reveal-mode" id="revealMode"></div>
+            <p class="reveal-message" id="revealMessage"></p>
+            <div class="score-change" id="scoreChange"></div>
+        </div>
+
+        <!-- Request Button -->
+        <button class="btn btn-fortune" id="btnRequest">ดูดวง</button>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

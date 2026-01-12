@@ -54,7 +54,25 @@ The game should feel:
 
 ## Development Commands
 
-*No build system configured yet. This is a greenfield project.*---
+*No build system configured yet. This is a greenfield project.*
+
+---
+
+## Memory-Bank System
+
+This project uses a structured memory system in `memory-bank/` for long-term project context:
+
+- **game-design-document.md** — Core feeling, fantasy, target players, player experience
+- **tech-stack.md** — Technology decisions and rationale
+- **implementation-plan.md** — Development phases and step-by-step build plan
+- **architecture.md** — System structure, components, data flow (UI Layer, State Manager, Game Engine, Fortune Generator, Persistence)
+- **progress.md** — Development log tracking decisions and milestones
+
+**Before planning or coding:** Always read the relevant memory-bank files to understand current state and prior decisions.
+
+**After major decisions:** Update the memory-bank to maintain project continuity.
+
+---
 
 ## Language Context
 

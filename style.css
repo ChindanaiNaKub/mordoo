@@ -1,0 +1,453 @@
+/* ===================================
+   TRUST THE FORTUNE? - Mystical Theme
+   =================================== */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0a0a1a;
+    --bg-darker: #050510;
+    --text-primary: #f0e6d3;
+    --text-secondary: #c9b896;
+    --accent-gold: #d4a853;
+    --accent-purple: #8b5cf6;
+    --accent-blue: #3b82f6;
+    --btn-primary: #d4a853;
+    --btn-primary-hover: #c9b896;
+    --btn-secondary: #4a5568;
+    --btn-secondary-hover: #5a6578;
+    --border-glow: rgba(212, 168, 83, 0.3);
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Stars Background */
+.stars-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 160px 120px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 230px 80px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 300px 150px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 350px 60px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 420px 180px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 500px 100px, rgba(255, 255, 255, 0.9), transparent);
+    background-size: 550px 250px;
+    animation: twinkle 8s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Moon */
+.moon {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff9e6, #d4a853);
+    box-shadow:
+        0 0 30px rgba(212, 168, 83, 0.4),
+        0 0 60px rgba(212, 168, 83, 0.2),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.moon::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 40px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-shadow: 0 0 20px var(--border-glow);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Trust Score */
+.trust-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: rgba(10, 10, 26, 0.6);
+    border: 1px solid var(--border-glow);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.trust-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.trust-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.trust-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-gold));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.trust-value {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Fortune Container */
+.fortune-container {
+    background: rgba(10, 10, 26, 0.8);
+    border: 2px solid var(--border-glow);
+    border-radius: 16px;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow:
+        0 0 30px rgba(212, 168, 83, 0.1),
+        inset 0 0 30px rgba(212, 168, 83, 0.05);
+    animation: fadeIn 0.5s ease, glow 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow:
+            0 0 30px rgba(212, 168, 83, 0.1),
+            inset 0 0 30px rgba(212, 168, 83, 0.05);
+    }
+    50% {
+        box-shadow:
+            0 0 40px rgba(212, 168, 83, 0.2),
+            inset 0 0 40px rgba(212, 168, 83, 0.1);
+    }
+}
+
+.fortune-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+/* Response Buttons */
+.response-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--btn-primary), var(--accent-gold));
+    color: var(--bg-darker);
+    box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--btn-primary-hover), var(--btn-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 168, 83, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--btn-secondary), #374151);
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--btn-secondary-hover), var(--btn-secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+.btn-fortune {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    padding: 18px 40px;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-fortune:hover {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.4);
+}
+
+.btn-fortune:active {
+    transform: translateY(0);
+}
+
+/* Reveal Container */
+.reveal-container {
+    background: rgba(10, 10, 26, 0.8);
+    border: 2px solid var(--border-glow);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.reveal-mode {
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    background: rgba(212, 168, 83, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.reveal-message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.score-change {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.score-change.positive {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.score-change.negative {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.score-change.neutral {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .fortune-text {
+        font-size: 1.2rem;
+    }
+
+    .moon {
+        width: 50px;
+        height: 50px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    .response-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .trust-container {
+        flex-wrap: wrap;
+    }
+
+    .trust-label {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
+
+/* Animation Delays */
+@keyframes delayFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
